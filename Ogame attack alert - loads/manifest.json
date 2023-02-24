@@ -1,0 +1,21 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+	"manifest_version": 3,
+	"name": "Ogame Attack Notifier",
+	"short_name": "OAN",
+	"description": "Ogame Attack notifier, notifies you when you're getting attacked.",
+	"version": "1.1",
+	"icons": { "16": "16.png",
+			   "48": "48.png",
+			   "128": "128.png"
+	},
+	"content_scripts": [
+		{
+			"matches":[ "https://*.ogame.gameforge.com/game/index.php?page=*" ],
+			"js": ["js/jquery.js", "js/content.js"],
+			"css": ["skin/style.css"],
+			"run_at": "document_end"	
+		}
+	]
+}
