@@ -1,0 +1,49 @@
+{
+	"manifest_version": 3,
+	"name": "Ogame Attack Notifier",
+	"short_name": "OAN",
+	"description": "Ogame Attack notifier, notifies you when you're getting attacked.",
+	"version": "1.2",
+	"icons": [
+		{
+			"src": "16.png",
+			"sizes": "16x16",
+			"type": "image/png"
+		},
+		{
+			"src": "32.png",
+			"sizes": "32x32",
+			"type": "image/png"
+		},
+		{
+			"src": "48.png",
+			"sizes": "48x48",
+			"type": "image/png"
+		},
+		{
+			"src": "128.png",
+			"sizes": "128x128",
+			"type": "image/png"
+		}
+	],
+	"content_scripts": [
+		{
+			"matches": ["https://*.ogame.gameforge.com/game/index.php?page="],
+			"js": ["js/jquery.js", "js/content.js"],
+			"css": [
+				"skin/style.css"
+			],
+			"run_at": "document_end"
+		}
+	],
+	"browser_action": {
+		"default_popup": "popup.html"
+	},
+	"background": {
+		"service_worker": "background.js"
+	},
+	"permissions": [
+		"activeTab",
+		"notifications"
+	]
+}
